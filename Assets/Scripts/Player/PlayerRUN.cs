@@ -21,5 +21,10 @@ public class PlayerRUN : PlayerFSMState
             transform.position,
             marker.position,
             moveSpeed * Time.deltaTime);
+
+        if(Vector3.Distance(transform.position,marker.position) < 0.01f)
+        {
+            GetComponent<FSMManager>().SetState(PlayerState.IDLE);
+        }
 	}
 }
